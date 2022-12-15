@@ -37,18 +37,6 @@ public class Atendimento implements Serializable {
 	@JoinColumn(name = "agendamento_id")
 	private Agendamento agendamento;
 
-	public Atendimento(String feedback, long status, Date dt_hora_chegada, long duracao, double valor_final) {
-		this.feedback = feedback;
-		this.status = status;
-		this.dt_hora_chegada = dt_hora_chegada;
-		this.duracao = duracao;
-		this.valor_final = valor_final;
-	}
-
-	@Deprecated
-	public Atendimento() {
-	}
-
 	public String getFeedback() {
 		return feedback;
 	}

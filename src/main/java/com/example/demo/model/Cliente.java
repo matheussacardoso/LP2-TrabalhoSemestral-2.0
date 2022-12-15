@@ -44,16 +44,24 @@ public class Cliente implements Serializable {
 
 	@OneToMany(mappedBy = "cliente")
 	private List<Agendamento> agendamento;
+	@OneToMany(mappedBy = "cliente")
+	private List<Email> email;
 
-	/*
-	 * //OLHAR SOBRE A NECESSIDADE DOS CONSTRUTORES
-	 * 
-	 * @Deprecated public Cliente() { }
-	 * 
-	 * public Cliente(String nome, String dt_nascimento, String instagram, String
-	 * profissao) { this.nome = nome; this.dt_nascimento = dt_nascimento;
-	 * this.instagram = instagram; this.profissao = profissao; }
-	 */
+	public List<Agendamento> getAgendamento() {
+		return agendamento;
+	}
+
+	public void setAgendamento(List<Agendamento> agendamento) {
+		this.agendamento = agendamento;
+	}
+
+	public List<Email> getEmail() {
+		return email;
+	}
+
+	public void setEmail(List<Email> email) {
+		this.email = email;
+	}
 
 	public Long getCliente_id() {
 		return cliente_id;

@@ -32,17 +32,32 @@ public class Agendamento implements Serializable {
 	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
 
-	@Deprecated
-	public Agendamento() {
-	}
-
-	public Agendamento(Date dt_marcada, String aviso) {
-		this.dt_marcada = dt_marcada;
-		this.aviso = aviso;
-	}
-
 	public Date getDt_marcada() {
 		return dt_marcada;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public Long getAgendamento_id() {
+		return agendamento_id;
+	}
+
+	public void setAgendamento_id(Long agendamento_id) {
+		this.agendamento_id = agendamento_id;
 	}
 
 	public void setDt_marcada(Date dt_marcada) {

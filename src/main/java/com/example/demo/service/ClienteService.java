@@ -32,13 +32,17 @@ public class ClienteService {
 	}
 
 	/*
-	public void delete(Integer id) throws ClienteNotFoundException {
+	public void delete(Integer id) {
 		Long count = repo.countById(id);
-		if (count == null || count == 0) {
-			throw new ClienteNotFoundException("Não foi possível encontrar nenhum cliente com esse id: " + id);
-		}
-		Long id_long = Long.valueOf(id);
-		repo.deleteById(id_long);
+		repo.deleteById(id);
 	}
 	*/
+
+	/*
+	 * public void delete(Integer id) throws ClienteNotFoundException { Long count =
+	 * repo.countById(id); if (count == null || count == 0) { throw new
+	 * ClienteNotFoundException("Não foi possível encontrar nenhum cliente com esse id: "
+	 * + id); } Long id_long = Long.valueOf(id); repo.deleteById(id_long); }
+	 */
+
 }

@@ -71,5 +71,14 @@ public class ClienteController {
 		return "redirect:/clientes";
 	}
 	*/
+	
+	/*
+	@GetMapping("/clientes/delete/{id}")
+	public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes ra) {
+		service.delete(id);
+		ra.addFlashAttribute("message", "O usuário com o id: " + id + " foi deletado do banco.");
+		return "redirect:/clientes";
+	}
+	*/
 
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Controle de agendamento</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<div class="container-fluid text-center">
+		<div>
+			<h1>Controle de agendamento</h1>
+		</div>
+		<div class="m-2">
+			<a class="h3" th:href="@{/index}">Adicionar novo agendamento</a>
+		</div>
+
+		<div th:if="${message}" class="alert alert-sucess text-center">
+			[[${message}]]
+		</div>
+
+		<div>
+			<table class="table table-bordered">
+				<thead class="thead-light">
+					<tr>
+						<th>agendamento_id</th>
+						<th>dt_marcada</th>
+						<th>aviso</th>
+						<th>cliente_id</th>
+						<th>funcionario_id</th>
+					</tr>
+				</thead>
+				<tbody>
+					<th:block th:each="agendamento : ${listAgendamento}">
+						<tr>
+							<td>[[${agendamento.agendamento_id}]]</td>
+							<td>[[${agendamento.dt_marcada}]]</td>
+							<td>[[${agendamento.aviso}]]</td>
+							<td>[[${agendamento.cliente}]]</td>
+							<td>[[${agendamento.funcionario}]]</td>
+						</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

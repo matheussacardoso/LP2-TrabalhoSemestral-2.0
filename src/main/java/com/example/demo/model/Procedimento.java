@@ -29,17 +29,6 @@ public class Procedimento implements Serializable {
 	@OneToMany(mappedBy = "procedimento")
 	private List<Servico> servico;
 
-	public Procedimento(String tipo_procedimento, String detalhe_procedimento, double comissao_per, Long descanso) {
-		this.tipo_procedimento = tipo_procedimento;
-		this.detalhe_procedimento = detalhe_procedimento;
-		this.comissao_per = comissao_per;
-		this.descanso = descanso;
-	}
-
-	@Deprecated
-	public Procedimento() {
-	}
-
 	public String getTipo_procedimento() {
 		return tipo_procedimento;
 	}

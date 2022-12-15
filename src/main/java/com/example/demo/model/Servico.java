@@ -34,15 +34,6 @@ public class Servico implements Serializable {
 	@JoinColumn(name = "atendimento")
 	private Atendimento atendimento;
 
-	@Deprecated
-	public Servico() {
-
-	}
-
-	public Servico(double valor_servico, double comissao) {
-		this.valor_servico = valor_servico;
-		this.comissao = comissao;
-	}
 
 	public double getValor_servico() {
 		return valor_servico;

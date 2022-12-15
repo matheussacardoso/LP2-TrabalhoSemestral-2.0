@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,17 +23,28 @@ public class Email implements Serializable {
 
 	private String email;
 
-	@Deprecated
-	public Email() {
-
-	}
-
-	public Email(String email) {
-		this.email = email;
-	}
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
 
 	public String getEmail() {
 		return email;
+	}
+
+	public long getEmail_id() {
+		return email_id;
+	}
+
+	public void setEmail_id(long email_id) {
+		this.email_id = email_id;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public void setEmail(String email) {

@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,7 +23,7 @@ public class Profissional implements Serializable {
 	private long profissional_id;
 
 	private String nome;
-	private Date dt_nascimento;
+	private LocalDate dt_nascimento;
 	private String cpf;
 
 	@OneToMany(mappedBy = "profissional")
@@ -37,11 +37,11 @@ public class Profissional implements Serializable {
 		this.nome = nome;
 	}
 
-	public Date getDt_nascimento() {
+	public LocalDate getDt_nascimento() {
 		return dt_nascimento;
 	}
 
-	public void setDt_nascimento(Date dt_nascimento) {
+	public void setDt_nascimento(LocalDate dt_nascimento) {
 		this.dt_nascimento = dt_nascimento;
 	}
 

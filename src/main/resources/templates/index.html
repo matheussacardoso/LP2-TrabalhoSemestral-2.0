@@ -1,95 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Agendamento do salao</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style-index.css" mdia="screen">
+	<title>Agendamento do salão</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" mdia="screen">
 </head>
 
 <body>
+	<form th:action="@{/index/save}" method="post" th:object="${agendamento}">
+		
+		<div class="container-fluid text-center">
+			<div class="m-2">
+				<h1 id="titulo">Agendamento do Salão</h1>
+				<p id="subtitulo">Complete suas informações</p>
+				<br>
+			</div>
+			
+			<input type="hidden" th:field="*{agendamento_id}">
+			
+			<div class="form-group">
+				<label> <strong>Nome do cliente: </strong> </label>
+				<select name="nome" id="profissional" th:field="*{cliente}">
+					<option value="1">Carlos Alberto</option>
+				</select>
+			</div>
 
-    <div class="container">
-        <div>
-            <h1 id="titulo">Agendamento do Salão</h1>
-            <p id="subtitulo">Complete suas informações</p>
-            <br>
-        </div>
+			<div class="form-group">
+				<label for="telefone"><strong>Telefone: </strong></label>
+				<input type="telefone" name="telefone" id="telefone" required>
+			</div>
 
-        <form>
-            <fieldset>
-                <class class="grupo">
-                    <div class="campo">
-                        <label for="nome"><strong>Nome e sobrenome</strong></label>
-                        <input type="text" name="nome" id="nome" required>
-                    </div>
-                    <div class="campo">
-                        <label for="telefone"><strong>Telefone</strong></label>
-                        <input type="telefone" name="telefone" id="telefone" required>
-                    </div>
-                </class>
-            </fieldset>
+			<div class="form-group">
+				<label> <strong>Escolha seu procedimento estético:</strong> </label>
+				<select name="procedimento" id="procedimento">
+					<option value="Colorimetria">Colorimetria</option>
+					<option value="Luzes">Luzes</option>
+					<option value="Corte Feminino">Corte Feminino</option>
+					<option value="Corte Feminino">Corte Masculino</option>
+					<option value="Selagem termica (acida)">Selagem termica (acida)</option>
+					<option value="Selagem termica (Formol)">Selagem termica (Formol)</option>
+					<option value="Escova">Escova</option>
+					<option value="Babylis">Babylis</option>
+					<option value="Penteados">Penteados</option>
+					<option value="Maquiagem">Maquiagem</option>
+					<option value="Tonalização">Tonalização</option>
+					<option value="Higienização">Higienização</option>
+					<option value="Relaxamento">Relaxamento</option>
+					<option value="Alisamento">Alisamento</option>
+				</select>
+			</div>
 
-            <fieldset>
-                <class class="grupo">
-                    <div id="check">
-                        <label> <strong>Escolha seu procedimento estético:</strong> </label>
-                        <br>
-                        <select name="procedimento" id="procedimento">
-                            <option value="Colorimetria">Colorimetria</option>
-                            <option value="Luzes">Luzes</option>
-                            <option value="Corte Feminino">Corte Feminino</option>
-                            <option value="Corte Feminino">Corte Masculino</option>
-                            <option value="Selagem termica (acida)">Selagem termica (acida)</option>
-                            <option value="Selagem termica (Formol)">Selagem termica (Formol)</option>
-                            <option value="Escova">Escova</option>
-                            <option value="Babylis">Babylis</option>
-                            <option value="Penteados">Penteados</option>
-                            <option value="Maquiagem">Maquiagem</option>
-                            <option value="Tonalização">Tonalização</option>
-                            <option value="Higienização">Higienização</option>
-                            <option value="Relaxamento">Relaxamento</option>
-                            <option value="Alisamento">Alisamento</option>
-                        </select>
+			<div class="form-group">
+				<label> <strong>Data do seu procedimento: </strong> </label>
+				<label>
+					<input type="datetime-local" name="data" id="agendamento" checked>
+				</label>
+			</div>
 
-                    </div>
-                </class>
-            </fieldset>
+			<div class="form-group">
+				<label> <strong>Escolha seu profissional:</strong> </label>
+				<select name="nome" id="profissional" th:field="*{funcionario}">
+					<option value="1">Carlos Alberto</option>
+					<option value="2">Matheus Sá</option>
+					<option value="3">João Vitor</option>
+					<option value="4">Eduardo Rodrigues</option>
+				</select>
+			</div>
 
-            <div class="campo">
-                <label> <strong>Data do seu procedimento: </strong> </label>
-                <label>
-                    <input type="datetime-local" name="data" id="agendamento" checked>
-                </label>
-            </div>
+			<div class="form-group">
+				<label><strong>Se tem alguma necessidade especial, comente aqui em baixo: </strong></label>
+				<br>
+				<textarea rows="3" id="experiencia" name="experiencia" th:field="*{aviso}"></textarea>
+			</div>
 
-            <fieldset class="grupo">
-                <div id="check">
-                    <label> <strong>Escolha seu profissional:</strong> </label>
-                    <br>
-                    <select name="nome" id="profissional">
-                        <option value="CA">Carlos Alberto</option>
-                        <option value="MT">Matheus Sá</option>
-                        <option value="JV">João Vitor</option>
-                        <option value="ER">Eduardo Rodrigues</option>
-                    </select>
-                </div>
-            </fieldset>
+			<div class="form-group">
+				<button class="botao" type="submit">Concluído</button>
+			</div>
 
-            <div class="campo">
-                <br>
-                <label><strong>Se tem alguma necessidade especial, comente aqui em baixo: </strong></label>
-                <textarea rows="6" style="width: 26em" id="experiencia" name="experiencia"></textarea>
-            </div>
-            <button class="botao" onclick="validarData()" type="submit">Concluído</button>
-        </form>
-
-    </div>
-    <script src="script.js">
-
-    </script>
+		</div>
+	</form>
 </body>
 
 </html>
