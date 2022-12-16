@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,11 +26,11 @@ public class Agendamento implements Serializable {
 	private Date dt_marcada;
 	private String aviso;
 
-	@ManyToOne
-	@JoinColumn(name = "cliente_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cliente_id",referencedColumnName = "cliente_id")
 	private Cliente cliente;
-	@ManyToOne
-	@JoinColumn(name = "funcionario_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "funcionario_id",referencedColumnName = "funcionario_id")
 	private Funcionario funcionario;
 
 	public Date getDt_marcada() {
